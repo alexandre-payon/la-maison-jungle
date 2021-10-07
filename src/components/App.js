@@ -2,6 +2,10 @@ import Banner from './Banner'
 import logo from '../assets/logo.png'
 import Cart from './Cart'
 import ShoppingList from './ShoppingList'
+
+
+import Categories from './Categories'
+
 // import QuestionForm from './QuestionForm'
 import Footer from './Footer'
 import '../styles/Layout.css'
@@ -9,6 +13,8 @@ import { useState } from 'react'
 
 function App() {
     const [cart, updateCart] = useState([])
+
+    const [update, setUpdate] = useState('')
     // return <div><Banner /><Cart /><ShoppingList /></div>
     return <div>
                 <Banner>

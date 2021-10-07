@@ -10,15 +10,15 @@ function CareScale({ scaleValue, careType }) {
 		)
 
 		function handleCareScale() {
-			if (careType == 'light') {
+			if (careType === 'light') {
 				careType = 'de lumière'
 			} else {
 				careType = 'd\'arrosage'
 			}
-			
-			if (scaleValue == 1) {
+
+			if (scaleValue === 1) {
 				scaleValue = 'peu'
-			} else if (scaleValue == 2) {
+			} else if (scaleValue === 2) {
 				scaleValue = 'modérement'
 			} else {
 				scaleValue = 'beaucoup'

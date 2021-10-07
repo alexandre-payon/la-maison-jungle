@@ -1,7 +1,7 @@
 import '../styles/PlantItem.css'
 import CareScale from './CareScale'
 
-function PlantItem({id, cover, name, light, water, price}) {
+function PlantItem({id, cover, name, light, water, price, category}) {
     return (
             <li key={id}  className='lmj-plant-item'  onClick={() => handleClick(name)}>
                 <span className='lmj-plant-item-price'>{price}€</span>
@@ -11,6 +11,7 @@ function PlantItem({id, cover, name, light, water, price}) {
                     <CareScale careType='water' scaleValue={water} />
                     <CareScale careType='light' scaleValue={light} />
                 </div>
+                <div>{category}</div>
             </li>
             )
 }

@@ -1,8 +1,12 @@
 import { plantList } from '../datas/plantList'
 import '../styles/ShoppingList.css'
+import Categories from './Categories'
 
 // import CareScale from './CareScale'
 import PlantItem from './PlantItem'
+
+
+import { useState } from 'react'
 
 /*const plantList = [
     'monstera',
@@ -11,17 +15,27 @@ import PlantItem from './PlantItem'
     'yucca',
     'palmier'
 ]*/
-const category= [];
+/*const category= [];
 
 plantList.forEach(function(item){
     if(!category.includes(item.category))
     {category.push(item.category)};
-});
+});*/
 
 
 
 
-function ShoppingList({ cart, updateCart }) {
+function ShoppingList({ cart, updateCart, update, setUpdate }) {
+
+
+    //const [update, setUpdate] = useState('')
+
+    const categories= [];
+
+    plantList.forEach(function(item){
+        if(!categories.includes(item.category))
+        {categories.push(item.category)};
+    });
     /*return (
         <ul>
             {plantList.map((plant, index) => (
@@ -46,11 +60,15 @@ function ShoppingList({ cart, updateCart }) {
     }
     return (
         <div className='lmj-shopping-list'>
-            <ul>
+        <Categories categories={categories} setUpdate={setUpdate} update={update} />
+
+
+            {/*console.log(update)*/}
+            {/*<ul>
             {category.map((cat) => (
                 <li key={cat}>{cat}</li>
             ))}
-            </ul>
+            </ul>*/}
 
 
             <ul className='lmj-plant-list'>
@@ -69,8 +87,10 @@ function ShoppingList({ cart, updateCart }) {
                         {/*plant.isBestSale && plant.category === "classique" && <span>🔥</span>*/  /*affiche uniquement si c'est une meilleure vente et une plante classiques */}
                     {/*</li>*/}
 				{/*))}*/}
-                {plantList.map(({id, name, cover, light, water, price}) =>
-                    <div key={id}>
+                {plantList.map(({id, name, cover, light, water, price, category}) =>
+                    !update || update === category ?
+
+                    (<div key={id}>
                         <PlantItem
                             id={id}
                             name={name}
@@ -78,9 +98,10 @@ function ShoppingList({ cart, updateCart }) {
                             light={light}
                             water={water}
                             price={price}
+                            category={category}
                         />
                         <button onClick={() => addToCart(name, price)}>Ajouter</button>
-                    </div>
+                    </div>) : null
                 )}
             </ul>
             </div>
