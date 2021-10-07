@@ -25,10 +25,10 @@ plantList.forEach(function(item){
 
 
 
-function ShoppingList({ cart, updateCart, update, setUpdate }) {
+function ShoppingList({ cart, updateCart}) {
 
 
-    //const [update, setUpdate] = useState('')
+    const [update, setUpdate] = useState('')
 
     const categories= [];
 
