@@ -4,17 +4,30 @@ import Cart from './Cart'
 import ShoppingList from './ShoppingList'
 
 
-import Categories from './Categories'
+//import Categories from './Categories'
 
 // import QuestionForm from './QuestionForm'
 import Footer from './Footer'
 import '../styles/Layout.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
-    const [cart, updateCart] = useState([])
 
-    const [update, setUpdate] = useState('')
+    const [cart, updateCart] = useState(JSON.parse(localStorage.getItem('panier')))
+    useEffect(() => {
+        localStorage.setItem('panier', JSON.stringify(cart))
+        console.log(localStorage.getItem('panier'))
+
+        console.log(JSON.parse(localStorage.getItem('panier')))
+
+    }, [cart])
+    //
+    // useEffect(() => {
+    //     updateCart(JSON.parse(localStorage.getItem('panier')))
+    //
+    // }, [])
+
+    //const [update, setUpdate] = useState('')
     // return <div><Banner /><Cart /><ShoppingList /></div>
     return <div>
                 <Banner>

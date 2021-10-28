@@ -5,6 +5,11 @@ import Categories from './Categories'
 
 function Cart({ cart, updateCart, update}) {
 
+
+
+
+
+
     // const [cart, updateCart] = useState(0)
     const [isOpen, setIsOpen] = useState(true)
 
@@ -13,11 +18,26 @@ function Cart({ cart, updateCart, update}) {
         0
     )
 
-    //alert(`J'aurai ${total}€ à payer 💸`)
-    //remplace l'alerte classique
-    useEffect(() => {
+    //remplace l'alerte classique à chaque rendu
+    // useEffect(() => {
+    //     alert(`J'aurai ${total}€ à payer 💸`)
+    // })
+
+    //affiche l'alerte à chaque premier rendu de la page
+    // useEffect(() => {
+    //     alert(`J'aurai ${total}€ à payer 💸`)
+    // }, [])
+
+    //affiche l'alerte à chaque fois que la variable total est mis à jour
+    /*useEffect(() => {
         alert(`J'aurai ${total}€ à payer 💸`)
-    }, [total, update])
+    }, [total])*/
+
+    //utilisation du useEffect pour modifier le titre de l'onglet du navigateur
+    /*useEffect(() => {
+        document.title = `LMJ: ${total}€ d'achats`
+    }, [total])*/
+
     //ative l'alerte seulement quant il y a un changement pour la somme totale
 
     // const monstera = 8
